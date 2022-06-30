@@ -11,13 +11,23 @@ public class Main {
 
 		ContatoDAO contatoDAO = new ContatoDAO();
 
-		Contato contato = new Contato();
-		contato.setNome("João Maia");
-		contato.setIdade(59);
-		contato.setDataCadastro(new Date());
+//		Salvar novo contato
+		Contato contato = new Contato("Nero Angelo", 19, new Date());
+//		contatoDAO.salvarContatoNoBanco(contato);
+		
+//		cria o novo objeto para atualizar no banco
+		Contato c1 = new Contato(1, "Maria Ravena", 88, new Date());
+		
+//		atualizar o contato no banco
+//		contatoDAO.atualizarContatos(c1);
+		
+//		deletar o contato
+//		contatoDAO.deletarContatoPorID(1);
+			
 
-		contatoDAO.save(contato);
-
+		for(Contato c : contatoDAO.listarContatos()) {
+			System.out.println(c.getNome() + " - " + c.getIdade() + " anos");
+		}
+		
 	}
-
 }
